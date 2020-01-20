@@ -1,0 +1,22 @@
+name: 'Vault'
+description: 'HashiCorp Vault Login'
+author: 'Andreas Åhman'
+branding:
+  icon: 'log-in'
+  color: 'green'
+inputs:
+  url:
+    description: 'The Vault API url'
+    required: true
+  role_id:
+    description: 'The Approle used to authenticate with Vault'
+    required: true
+  secret_id:
+      description: 'The Secret used to authenticate with Vault'
+      required: true
+  namespace:
+    description: 'The Vault namespace'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/main.js'

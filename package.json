@@ -1,0 +1,32 @@
+{
+  "name": "vault-login",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Hashicorp Vault login action",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint --project ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreas-ahman/vault-login.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "setup"
+  ],
+  "author": "Andreas Åhman",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.5.1"
+  }
+}
