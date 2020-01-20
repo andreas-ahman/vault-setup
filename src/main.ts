@@ -33,7 +33,14 @@ async function run() {
     const vaultToken = await core.group('Login using approle', () =>
       vaultLogin(url, headers, roleId, secretId),
     );
+    core.setSecret(vaultToken);
+    core.info('Exporting VAULT env variables:');
+    core.info(`VAULT_TOKEN: ${vaultToken}`);
+    core.info(`VAULT_ADDR: ${url}`);
+    core.info(`VAULT_NAMESPACE: ${namespace}`);
     core.exportVariable('VAULT_TOKEN', vaultToken);
+    core.exportVariable('VAULT_ADDR', url);
+    core.exportVariable('VAULT_NAMESPACE', namespace);
   } catch (error) {
     core.setFailed(error.message);
   }
