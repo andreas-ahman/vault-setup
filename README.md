@@ -20,7 +20,7 @@ The token is saved to `.vault_token`
 
 ```yaml
 - name: Login to Vault
-  uses: andreas-ahman/vault-login@v1
+  uses: andreas-ahman/vault-login@master
   with:
     url: https://vault.mycompany.fake
     namespace: my_own_namespace
