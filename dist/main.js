@@ -52,8 +52,7 @@ function run() {
                 headers['X-Vault-Namespace'] = namespace;
             }
             const vaultToken = yield core.group('Login using approle', () => vaultLogin(url, headers, roleId, secretId));
-            headers['X-Vault-Token'] = vaultToken;
-            fs_1.default.writeFileSync('.vault_token', vaultToken);
+            fs_1.default.writeFileSync('~/.vault_token', vaultToken);
         }
         catch (error) {
             core.setFailed(error.message);

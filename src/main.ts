@@ -35,8 +35,7 @@ async function run() {
     const vaultToken = await core.group('Login using approle', () =>
       vaultLogin(url, headers, roleId, secretId),
     );
-    headers['X-Vault-Token'] = vaultToken;
-    fs.writeFileSync('.vault_token', vaultToken);
+    fs.writeFileSync('~/.vault_token', vaultToken);
   } catch (error) {
     core.setFailed(error.message);
   }
