@@ -20,5 +20,5 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: dist/main.js
         asset_name: main.js
-        tag: v1
+        tag: ${{ github.ref }}
         overwrite: true
