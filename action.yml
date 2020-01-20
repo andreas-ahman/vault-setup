@@ -1,5 +1,5 @@
 name: 'Vault'
-description: 'HashiCorp Vault Login'
+description: 'HashiCorp Vault Setup'
 author: 'Andreas Åhman'
 branding:
   icon: 'log-in'
