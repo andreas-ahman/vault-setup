@@ -21,7 +21,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
 const axios_1 = __importDefault(require("axios"));
-const fs_1 = __importDefault(require("fs"));
 function vaultLogin(baseUrl, headers, roleId, secretId) {
     return __awaiter(this, void 0, void 0, function* () {
         const client = axios_1.default.create({
@@ -52,7 +51,7 @@ function run() {
                 headers['X-Vault-Namespace'] = namespace;
             }
             const vaultToken = yield core.group('Login using approle', () => vaultLogin(url, headers, roleId, secretId));
-            fs_1.default.writeFileSync('~/.vault_token', vaultToken);
+            core.exportVariable('VAULT_TOKEN', vaultToken);
         }
         catch (error) {
             core.setFailed(error.message);

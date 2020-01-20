@@ -1,8 +1,6 @@
 import * as core from '@actions/core';
 import axios from 'axios';
 
-import fs from 'fs';
-
 async function vaultLogin(baseUrl: string, headers, roleId: string, secretId: string) {
   const client = axios.create({
     headers,
@@ -35,7 +33,7 @@ async function run() {
     const vaultToken = await core.group('Login using approle', () =>
       vaultLogin(url, headers, roleId, secretId),
     );
-    fs.writeFileSync('~/.vault_token', vaultToken);
+    core.exportVariable('VAULT_TOKEN', vaultToken);
   } catch (error) {
     core.setFailed(error.message);
   }
